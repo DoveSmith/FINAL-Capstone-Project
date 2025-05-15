@@ -1,0 +1,274 @@
+</html><!DOCTYPE html>
+ <style>
+/*CODE STYLE FOR FIELD DESIGN*/
+ 
+   .field {
+      position: relative;
+      width: 86%;
+      height: 86%;
+      background-color: #008f44;
+      border: 2px solid white;
+     margin-left: 7%;
+     z-index: 700;
+    }
+
+    .line {
+      position: absolute;
+      background-color: white;
+    }
+
+    .midline {
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      transform: translateX(-50%);
+    }
+
+    .center-circle {
+      position: absolute;
+      width: 17.5%;
+      height: 28%;
+      border: 2px solid white;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .center-spot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .penalty-box, .goal-box {
+      position: absolute;
+      border: 2px solid white;
+    }
+
+    .penalty-box {
+      width: 18%;
+      height: 55%;
+      top: 22%;
+    }
+
+    .goal-box {
+      width: 6%;
+      height: 20%;
+      top: 40%;
+    }
+
+    .left.penalty-box, .left.goal-box {
+      left: 0;
+    }
+
+    .right.penalty-box, .right.goal-box {
+      right: 0;
+    }
+
+
+    .penalty-spot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: white;
+      border-radius: 50%;
+      top: 50%;
+    }
+
+    .penalty-spot.left {
+      left: 8%;
+      transform: translateY(-50%);
+    }
+
+    .penalty-spot.right {
+      right: 8%;
+      transform: translateY(-50%);
+    }
+/*END OF CODE FOR FIELD*/  
+    }
+   #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%; /* Will adjust based on viewport */
+    height: 7%;
+    position: relative;
+    background: #3498db;
+     
+  
+}
+
+.circle {
+    width: 10vw; /* Dynamic size based on viewport width */
+    height: 10vw; /* Dynamic size based on viewport width */
+    background-color: #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+  z-index: 1001;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw; 
+      height: 100vh; 
+      flex-direction: column; 
+      overflow: hidden;
+      background-color: #6F7378;
+    }
+
+    .divider3 {
+      background-color: #808080; 
+      height: 7%;
+      width: 35%; 
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      margin-left: auto;
+      border: 3px solid black;
+    }
+    .divider4 {
+      background-color: #808080; 
+      height: 7%;
+      width: 35%; 
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      margin-left: auto;
+      border: 3px solid black;
+ 
+    }
+
+    .divider6 {
+      background-color: #808080; 
+      height: 14%;
+      width: 35%; 
+      display: flex;
+      float: left;
+      border: 3px solid black;
+      user-select: none;
+      justify-content: center; 
+      align-items: center;
+      gap: 100px;
+      
+   }
+   .divider7 {
+      background-color: #808080; 
+      height: 14%;
+      width: 20%; 
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      float: left;
+     border: 3px solid black;
+      user-select: none;
+   }
+    .divider8 {
+      background-color: #808080; 
+      height: 14%;
+      width: 10%; 
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      float: left;
+      border: 3px solid black;
+       user-select: none;
+    
+   }
+    div.divider1 {
+      background-color: #808080;             
+      height: 6%;
+      width: 100%;
+      display: flex; 
+      justify-content: center;
+      align-items: center; 
+      text-align: center;
+    }
+    .divider2 {
+      background-color: #169016; 
+      height: 86%;
+      width: 100%; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 10px solid black;
+      cursor: crosshair;
+    }
+   div.divider1 div {
+  width:33.333333%;  
+  float:left;
+   }
+   canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: auto;
+          z-index: 1000;
+        }
+   button1 {
+           flex: 1; /* Allows both buttons to take up equal space */
+    height: 100%; /* Makes buttons fill the div vertically */
+     width: 100%;
+    font-size: 18px;
+    border: 2px solid black;
+    cursor: pointer;
+        }
+
+        .button1:hover {
+            background-color: #169016; /* Changes color on hover */
+        }
+ 
+  </style>
+</head>
+<body>
+ <script src="script.js"></script>
+  <div class="field" id="container3">
+      <canvas id="drawingCanvas"></canvas>
+    <div class="line midline"></div>
+    <div class="center-circle"></div>
+    <div class="center-spot"></div>
+
+    <div class="penalty-box left"></div>
+    <div class="penalty-box right"></div>
+
+    <div class="goal-box left"></div>
+    <div class="goal-box right"></div>
+
+    <div class="penalty-arc left"></div>
+    <div class="penalty-arc right"></div>
+
+    <div class="penalty-spot left"></div>
+    <div class="penalty-spot right"></div>
+   
+  </div>
+  
+  <div class="divider8">
+    <button class="button1" id="screenshotBtn">Capture Screenshot</button>
+  </div>
+  <div class="divider7">
+    
+<button id="resetBtn">Restart Website</button>
+
+  </div>
+    <div class="divider6">
+       <button class="button1" id="toggleDrawing">Enable Drawing</button>
+    <button class="button1" id="undo">Undo</button>
+    </div>
+  <div class="divider3" id="container"></div>
+  <div class="divider4" id="container2"></div>
+</body>
+</html>
